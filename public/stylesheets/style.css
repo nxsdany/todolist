@@ -6,3 +6,21 @@ body {
 a {
   color: #00B7FF;
 }
+
+.container {
+display:flex;
+flex-direction: row;
+flex-wrap: wrap;
+  justify-content: space-around;
+align-items: flex-start;
+}
+.list {
+  flex-basis: 30%;
+  flex-grow: 1;
+  align-self: flex-start;
+  width: 200px; 
+  background-color: rgba(0,0,120,0.2);
+  border: #ccc;
+  border-radius: 4px;
+
+}

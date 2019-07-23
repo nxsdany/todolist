@@ -10,8 +10,9 @@ var usersRouter = require('./routes/users');
 var app = express();
 
 // view engine setup
+app.use(express.static(__dirname + '/views'));  //static for html as default viewer
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+// app.set('view engine', 'pug');
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -39,3 +40,7 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+
+app.listen(3000, function () {
+  console.log('This app listening on port 3000!');
+});
