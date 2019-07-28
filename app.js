@@ -42,19 +42,19 @@ app.use(function(err, req, res, next) {
 module.exports = app;
 
 var sqlite3 = require('sqlite3').verbose();
-var db = new sqlite3.Database('test.db');
+var db = new sqlite3.Database('todo.db');
 
 db.serialize(function () {
-  db.run("CREATE TABLE lorem (info TEXT)");
+  db.run("CREATE TABLE IF NOT EXISTS note (id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, text  TEXT NOT NULL, create_at INTEGER, update_at INTEGER, remind_at INTEGER)");
 
-  var stmt = db.prepare("INSERT INTO lorem VALUES (?)");
-  for (var i = 0; i < 10; i++) { 
-    stmt.run("Ipsum " + i);
+  var ins = db.prepare("INSERT INTO note(text) VALUES (?)");
+  for (var i = 0; i < 2; i++) { 
+    ins.run("task # " + i);
   }
-  stmt.finalize();
+  ins.finalize();
 
-  db.each("SELECT rowid AS id, info FROM lorem", function (err, row) {
-    console.log(row.id + ": " + row.info);
+  db.each("SELECT rowid AS id, * FROM note", function (err, row) {
+    console.log(row.id + ": " + row.text);
   });
 });
 
