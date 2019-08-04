@@ -10,10 +10,12 @@ new Vue({
 		};
 	},
 	methods: {
-		addTask:function(){
-			var value=event.target.value;
+		createTask:function(){
+			this.$f7.dialog.prompt('Что надо?','Создание задачи',this.addTask);
+		},
+		addTask:function(value){
 			if (value)
-				this.ajax({message:{text:value}})
+				this.ajax({message:{chat:{id:'315331717'},text:value}}) //чат ад брать откуданить с авторизации 
 		},
 		markTask:function(){
 			this.$f7.dialog.alert('task '+this.getTask(event)+' mark');

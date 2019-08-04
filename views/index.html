@@ -18,77 +18,24 @@
 					<f7-page>
 						<f7-navbar title="Планировщик задач"></f7-navbar>
 
-						<f7-tabs animated>
-							<f7-tab id="tab-1" tab-active>
-								<f7-list inline-labels no-hairlines-md>
-									<f7-list-input @blur="addTask" type="text" placeholder="Новая заметка"></f7-list-input>
-								</f7-list>
-								<f7-list media-list>
-									<f7-list-item	swipeout title="Задача" after="17:14" text="Написать задачник на вью и фреймворк7 что бы все работало и было красивенько." task="123">
-										<f7-swipeout-actions left>
-											<f7-swipeout-button overswipe color="green" @click="sendArc">Ok</f7-swipeout-button>
-										</f7-swipeout-actions>
-										<f7-swipeout-actions right>
-											<f7-swipeout-button color="orange" @click="markTask">Mark</f7-swipeout-button>
-											<f7-swipeout-button @click="taskEdit">Edit</f7-swipeout-button>
-										</f7-swipeout-actions>
-									</f7-list-item>
-								</f7-list>
+						<f7-list media-list class="content">
 
-							</f7-tab>
-							<f7-tab id="tab-2">
-								<f7-block>
-									<p>Tab 2 content</p>
-									...
-								</f7-block>
-							</f7-tab>
-							<f7-tab id="tab-3">
-								<form class="list" id="my-form">
-									<f7-list inline-labels no-hairlines-md>
-										<f7-list-input @input="addTask" type="text" placeholder="Заголовок"></f7-list-input>
-										<f7-list-input ltype="text" placeholder="Описание задачи"></f7-list-input>
-										<f7-list-input label="Дата выполнения" type="date"></f7-list-input>
-										<f7-list-input label="Время выполнения" type="time"></f7-list-input>
-										<f7-button color="blue">Сохранить</f7-button>
-									</f7-list>
-								</form>
-							</f7-tab>
-							<f7-tab id="tab-4">
-								<f7-block>
-									<p>Tab 3 content</p>
-									...
-								</f7-block>
-							</f7-tab>
-						</f7-tabs>	
+							<f7-list-item swipeout text="Написать задачник на вью и фреймворк7 что бы все работало и было красивенько." task="123">
+								<f7-swipeout-actions left>
+									<f7-swipeout-button overswipe color="green" @click="sendArc">Ok</f7-swipeout-button>
+								</f7-swipeout-actions>
+								<f7-swipeout-actions right>
+									<f7-swipeout-button color="orange" @click="markTask">Mark</f7-swipeout-button>
+									<f7-swipeout-button @click="taskEdit">Edit</f7-swipeout-button>
+								</f7-swipeout-actions>
+							</f7-list-item>
 
-						<f7-fab position="right-bottom" slot="fixed" color="orange">
+						</f7-list>
+
+						<f7-fab position="right-bottom" slot="fixed" color="orange" @click="createTask">
 							<f7-icon ios="f7:+" aurora="f7:+" md="material:+"></f7-icon>
 						</f7-fab>
 
-						<f7-toolbar bottom tabbar labels>
-							<f7-link tab-link="#tab-1" tab-link-active>
-								<f7-icon>
-									<f7-badge color="red">5</f7-badge>
-								</f7-icon>
-								<span class="tabbar-label">Задачи</span>
-							</f7-link>
-							<f7-link tab-link="#tab-2">
-								<f7-icon>	</f7-icon>
-								<span class="tabbar-label">Календарь</span>
-							</f7-link>
-							<f7-link tab-link="#tab-3">
-								<f7-icon>
-								</f7-icon>
-								<span class="tabbar-label">Создать</span>
-							</f7-link>
-							<f7-link tab-link="#tab-4">
-								<f7-icon>
-									<f7-badge color="green">7</f7-badge>
-								</f7-icon>
-								<span class="tabbar-label">Архив</span>
-							</f7-link>
-						</f7-toolbar>
-	
 					</f7-page>
 				</f7-view>
 			</f7-app>
